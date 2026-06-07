@@ -1,0 +1,132 @@
+{
+  "nome": "Rede Sol Nascente",
+  "whatsapp": "2199039 2332",
+  "email": "thiagopaiva1980@outlook.com",
+  "atuacao": "Recuperação de Dependência Química",
+  "segmento": "Ofertas de Clínicas para tratamento de Dependência Química",
+  "descricao": "Tratamento de Dependência Química e Jogos",
+  "endereco": "O mesmo do Luiz",
+  "cidade": "Itaboraí",
+  "borda_logo_cor": "transparent",
+  "logo_circle": true,
+  "logo": "logo.png",
+  "fotos_portfolio": [
+    "assets/img-slide/foto1.jpg",
+    "assets/img-slide/foto2.jpg",
+    "assets/img-slide/foto3.jpg",
+    "assets/img-slide/foto4.jpg",
+    "assets/img-slide/foto5.jpg",
+    "assets/img-slide/foto6.jpg",
+    "assets/img-slide/foto7.jpg",
+    "assets/img-slide/foto8.jpg",
+    "assets/img-slide/foto9.jpg",
+    "assets/img-slide/foto10.jpg",
+    "assets/img-slide/foto11.jpg",
+    "assets/img-slide/foto12.jpg",
+    "assets/img-slide/foto13.jpg"
+  ],
+  "sessoes": [
+    {
+      "id": "hero",
+      "titulo": "Início",
+      "conteudo": "Página principal com chamada para ação de agendamento."
+    },
+    {
+      "id": "hero-cards",
+      "titulo": "Por que escolher a Lúmen?",
+      "descricao": "Orientação especializada para famílias e suporte terapêutico contínuo.",
+      "diferenciais": [
+        "Atendimento Humanizado",
+        "Juntos somos mais fortes (apoio às famílias)",
+        "Foco na Recuperação"
+      ]
+    },
+    {
+      "id": "about",
+      "titulo": "Sobre a Lúmen",
+      "texto": "Metodologia de consultoria especializada com suporte terapêutico humanizado. Tratamento realizado em 90 ou 180 dias.",
+      "pilares": [
+        "Acolhimento Consciente",
+        "Suporte Terapêutico Humano",
+        "Transformação de Vidas"
+      ]
+    },
+    {
+      "id": "jogos-azar",
+      "titulo": "Superando a Dependência em Jogos de Azar",
+      "descricao": "Atendimento sigiloso e técnico focado na reestruturação emocional e comportamental.",
+      "focos": [
+        "Atendimento especializado e sigiloso",
+        "Reestruturação emocional e comportamental",
+        "Suporte para reconstrução de laços familiares"
+      ]
+    },
+    {
+      "id": "tratamento",
+      "titulo": "Metodologia e Estrutura",
+      "infraestrutura": [
+        "Monitoramento 24 Horas",
+        "Enfermagem 24 horas",
+        "Equipe: Psiquiatra, Psicólogo, Coach, Terapeutas e Monitores",
+        "Alimentação balanceada (4 refeições/dia)",
+        "Área de Lazer: Piscina, sauna, quadra de beach tênis, futvôlei e vôlei"
+      ],
+      "programa_terapeutico": [
+        "Terapia Racional Emotiva",
+        "Terapia Cognitiva Comportamental",
+        "Plano de prevenção à recaída",
+        "Guia de Passos",
+        "Introdução de N.A e A.A",
+        "Reuniões em grupo e individuais",
+        "Vídeo terapia",
+        "Espiritualidade"
+      ]
+    },
+    {
+      "id": "gallery",
+      "titulo": "Galeria",
+      "descricao": "Imagens das instalações e ambiente de acolhimento."
+    },
+    {
+      "id": "beneficios",
+      "titulo": "Diferenciais Lúmen",
+      "detalhes": [
+        {
+          "titulo": "Consultoria Especializada",
+          "descricao": "Orientação precisa para famílias no momento mais delicado."
+        },
+        {
+          "titulo": "Abordagem Humanizada",
+          "descricao": "Respeito à individualidade e dignidade do paciente."
+        },
+        {
+          "titulo": "Foco em Reintegração",
+          "descricao": "Resultados a longo prazo e retorno à vida social."
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "titulo": "Perguntas Frequentes",
+      "perguntas": [
+        {
+          "pergunta": "Como funciona o processo de admissão na Lúmen?",
+          "resposta": "Avaliação detalhada por equipe multidisciplinar para traçar o plano terapêutico."
+        },
+        {
+          "pergunta": "A família pode participar do tratamento?",
+          "resposta": "Sim, oferecemos consultoria especializada e grupos de apoio aos familiares."
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "titulo": "Contato",
+      "informacoes": {
+        "localizacao": "Niterói, Rio de Janeiro",
+        "telefones": ["219672267288", "21980874548"],
+        "email": "lucacostalccs@gmail.com"
+      }
+    }
+  ]
+}
