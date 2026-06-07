@@ -334,6 +334,19 @@ padding:30px 0;
         padding: 12px 20px;
     }
 }
+
+/* Ajuste para as imagens do carrossel ficarem completas */
+.gallery-slide {
+    width: 100%;
+    height: 450px; /* Defina a altura que melhor se ajustar ao seu design */
+    object-fit: contain; /* Garante que a imagem apareça inteira sem cortes */
+    background-color: #f4f4f4; /* Cor de fundo sutil para preencher as laterais vazias */
+}
+
+/* Opcional: Garante que o container do carrossel acompanhe a mesma altura */
+.carousel-inner {
+    max-height: 450px;
+}
 </style>
 </head>
 
