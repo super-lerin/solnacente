@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -11,43 +10,55 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
 <style>
-
 :root{
 --primary:#198754;
 --dark:#0d1b16;
 --light:#f8faf9;
 }
-
-html{
-scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
-body{
-font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
-background:#fff;
-overflow-x:hidden;
+body {
+    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 .navbar{
 background:#fff;
 box-shadow:0 2px 20px rgba(0,0,0,.08);
+padding: 10px 0;
 }
 
 .navbar-brand img{
-height:60px;
+height: 105px; /* TAMANHO DA LOGO AUMENTADO (De 85px para 105px) */
+transition: 0.3s ease;
+}
+
+.navbar-slogan {
+font-size: 0.85rem;
+font-weight: 500;
+color: #555;
+max-width: 220px;
+line-height: 1.2;
+border-left: 2px solid #ddd;
+padding-left: 12px;
+margin-left: 12px;
 }
 
 .hero{
 padding:120px 0;
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url('hero.jpg') center center/cover;
+background: linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)), url('assets/img/hero.png') center center/cover;
 color:#fff;
 }
 
@@ -159,20 +170,6 @@ color:white;
 padding:30px 0;
 }
 
-@media(max-width:768px){
-
-.hero{
-padding:80px 0;
-background-image: url('assets/img/hero.png');
-}
-
-.hero h1{
-font-size:2rem;
-}
-
-}
-
-
 .gallery-img{
     width:100%;
     height:280px;
@@ -188,21 +185,17 @@ font-size:2rem;
 }
 
 /* ==========================================
-   HERO
+   HERO (DESKTOP)
 ========================================== */
-
 .hero-section {
     position: relative;
     min-height: 100vh;
-
-    background-image: url('assets/img/hero-desktop.png');
+    background-image: url('assets/img/hero.png'); /* Imagem de fundo configurada */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-
     display: flex;
     align-items: center;
-
     color: #fff;
     overflow: hidden;
 }
@@ -210,7 +203,6 @@ font-size:2rem;
 .hero-overlay {
     position: absolute;
     inset: 0;
-
     background: linear-gradient(
         to right,
         rgba(0,0,0,.75) 0%,
@@ -237,15 +229,24 @@ font-size:2rem;
 }
 
 /* ==========================================
-   MOBILE
+   MOBILE & RESPONSIVIDADE
 ========================================== */
-
 @media (max-width: 768px) {
+    .hero {
+        padding:80px 0;
+    }
+    
+    .hero h1 {
+        font-size:2rem;
+    }
+    
+    .navbar-slogan {
+        display: none; /* Oculta o slogan em telas muito pequenas para não quebrar o layout */
+    }
 
     .hero-section {
         min-height: 90vh;
-
-        background-image: url('assets/img/hero-mobile.png');
+        background-image: url('assets/img/hero.png'); /* Mesma imagem para o mobile */
         background-position: center top;
     }
 
@@ -266,8 +267,74 @@ font-size:2rem;
         font-size: 1rem;
     }
 }
-</style>
 
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+.btn-primary:hover {
+    background-color: #146c43;
+    border-color: #13653f;
+} 
+
+/* Customizações para a Seção Sobre */
+.about-card {
+    background: #ffffff;
+    border: 1px solid #eef2f0;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.about-img-container {
+    position: relative;
+    border-radius: 24px;
+    overflow: visible;
+}
+
+.about-img-container img {
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    height: 420px;
+    width: 100%;
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: -20px;
+    left: 30px;
+    background: #ffffff;
+    padding: 16px 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border-left: 4px solid var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 3;
+}
+
+@media (max-width: 991px) {
+    .about-img-container {
+        margin-top: 40px;
+    }
+    .about-img-container img {
+        height: 300px;
+    }
+    .floating-badge {
+        bottom: -15px;
+        left: 20px;
+        padding: 12px 20px;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -275,8 +342,9 @@ font-size:2rem;
 <nav class="navbar navbar-expand-lg fixed-top">
 <div class="container">
 
-<a class="navbar-brand" href="#">
-<img src="assets/img/logo.png" alt="Logo">
+<a class="navbar-brand d-flex align-items-center" href="#">
+    <img src="assets/img/logo.png" alt="Logo">
+    <span class="navbar-slogan d-none d-md-inline-block">Recuperação de Dependência Química e Jogos</span>
 </a>
 
 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -284,17 +352,13 @@ font-size:2rem;
 </button>
 
 <div class="collapse navbar-collapse" id="menu">
-
 <ul class="navbar-nav ms-auto">
-
 <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
 <li class="nav-item"><a class="nav-link" href="#tratamento">Tratamento</a></li>
 <li class="nav-item"><a class="nav-link" href="#gallery">Galeria</a></li>
 <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
 <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
-
 </ul>
-
 </div>
 
 </div>
@@ -302,322 +366,195 @@ font-size:2rem;
 
 <section id="hero" class="hero-section">
     <div class="hero-overlay"></div>
-
     <div class="container">
         <div class="hero-content">
             <h1>Recuperação da Dependência Química com Acolhimento e Segurança</h1>
-
-            <p>
-                Atendimento humanizado para pacientes e familiares,
-                com suporte especializado em todas as etapas da recuperação.
-            </p>
-
-            <a href="#contact" class="btn btn-primary btn-lg">
-                Falar com um Especialista
-            </a>
+            <p>Atendimento humanizado para pacientes e familiares, com suporte especializado em todas as etapas da recuperação.</p>
+            <a href="#contact" class="btn btn-primary btn-lg">Falar com um Especialista</a>
         </div>
     </div>
 </section>
 
 <section class="py-5">
-
 <div class="container">
-
 <div class="text-center mb-5">
-
-<h2 class="section-title">
-Por que escolher a Rede Sol Nascente?
-</h2>
-
-<p>
-Orientação especializada para famílias e suporte terapêutico contínuo.
-</p>
-
+<h2 class="section-title">Por que escolher a Rede Sol Nascente?</h2>
+<p>Orientação especializada para famílias e suporte terapêutico contínuo.</p>
 </div>
 
 <div class="row g-4">
-
 <div class="col-md-4">
-
 <div class="feature-card">
-
-<div class="feature-icon">
-<i class="fas fa-hand-holding-heart"></i>
-</div>
-
+<div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
 <h4>Atendimento Humanizado</h4>
-
-<p>
-Acolhimento respeitoso e individualizado.
-</p>
-
+<p>Acolhimento respeitoso e individualizado.</p>
 </div>
-
 </div>
 
 <div class="col-md-4">
-
 <div class="feature-card">
-
-<div class="feature-icon">
-<i class="fas fa-users"></i>
-</div>
-
+<div class="feature-icon"><i class="fas fa-users"></i></div>
 <h4>Apoio às Famílias</h4>
-
-<p>
-Juntos somos mais fortes durante todo o processo.
-</p>
-
+<p>Juntos somos mais fortes durante todo o processo.</p>
 </div>
-
 </div>
 
 <div class="col-md-4">
-
 <div class="feature-card">
-
-<div class="feature-icon">
-<i class="fas fa-seedling"></i>
-</div>
-
+<div class="feature-icon"><i class="fas fa-seedling"></i></div>
 <h4>Foco na Recuperação</h4>
-
-<p>
-Estratégias para resultados duradouros.
-</p>
-
+<p>Estratégias para resultados duradouros.</p>
 </div>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
-<!-- SOBRE -->
 
 <section id="about" class="about py-5">
-
 <div class="container">
-
 <div class="row align-items-center g-5">
+    
+    <div class="col-lg-6">
+        <span class="text-success fw-bold text-uppercase tracking-wider small d-block mb-2">Quem Somos</span>
+        <h2 class="section-title mb-4" style="font-size: 2.5rem;">Sobre a Rede Sol Nascente</h2>
+        
+        <p class="lead text-muted mb-4">
+            Metodologia de consultoria especializada com suporte terapêutico humanizado para dependência química e comportamental.
+        </p>
+        
+        <p class="text-secondary mb-4">
+            Nosso trabalho consiste em guiar famílias e pacientes a estruturas terapêuticas amplamente qualificadas no fornecimento de acolhimento, reabilitação e reintegração social.
+        </p>
+        
+        <div class="p-3 bg-light rounded-3 border-start border-success border-3 mb-4">
+            <p class="mb-0 text-dark fw-medium">
+                <i class="far fa-calendar-alt text-success me-2"></i> Os programas terapêuticos podem ocorrer em períodos de 90 ou 180 dias, conforme avaliação profissional.
+            </p>
+        </div>
 
-<div class="col-lg-6">
+        <div class="row g-3 mt-2">
+            <div class="col-md-4">
+                <div class="about-card text-center h-100">
+                    <div class="fs-2 mb-2">🤝</div>
+                    <h6 class="fw-bold text-dark mb-1">Acolhimento</h6>
+                    <small class="text-muted d-block">Consciente e Humano</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="about-card text-center h-100">
+                    <div class="fs-2 mb-2">❤️</div>
+                    <h6 class="fw-bold text-dark mb-1">Suporte</h6>
+                    <small class="text-muted d-block">Familiar Integral</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="about-card text-center h-100">
+                    <div class="fs-2 mb-2">🌱</div>
+                    <h6 class="fw-bold text-dark mb-1">Evolução</h6>
+                    <small class="text-muted d-block">E Transformação</small>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<img src="assets/img-slide/foto1.jpg"
-class="img-fluid shadow">
+    <div class="col-lg-6">
+        <div class="about-img-container">
+            <img src="assets/img/foto4.jpg" alt="Estrutura de reabilitação Rede Sol Nascente" class="img-fluid">
+            
+            <div class="floating-badge">
+                <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div>
+                    <h6 class="fw-bold text-dark mb-0">Ambiente Seguro</h6>
+                    <small class="text-muted">Monitoramento e suporte 24h</small>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
-
-<div class="col-lg-6">
-
-<h2 class="section-title">
-Sobre a Rede Sol Nascente
-</h2>
-
-<p class="lead">
-Metodologia de consultoria especializada com suporte terapêutico
-humanizado para dependência química e comportamental.
-</p>
-
-<p>
-Nosso trabalho é direcionar famílias e pacientes para estruturas
-terapêuticas preparadas para oferecer acolhimento, recuperação e
-reintegração social.
-</p>
-
-<p>
-Os programas terapêuticos podem ocorrer em períodos de
-90 ou 180 dias, conforme avaliação profissional.
-</p>
-
-<div class="row mt-4">
-
-<div class="col-md-4">
-<div class="text-center">
-<h5>🤝</h5>
-<p>Acolhimento Consciente</p>
 </div>
-</div>
-
-<div class="col-md-4">
-<div class="text-center">
-<h5>❤️</h5>
-<p>Suporte Humano</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="text-center">
-<h5>🌱</h5>
-<p>Transformação</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-<!-- JOGOS DE AZAR -->
-
 <section id="jogos-azar" class="py-5">
-
 <div class="container">
-
 <div class="text-center mb-5">
-
-<h2 class="section-title">
-Superando a Dependência em Jogos de Azar
-</h2>
-
-<p>
-Atendimento sigiloso e especializado para quem enfrenta
-problemas relacionados a apostas, cassinos online,
-bets e jogos compulsivos.
-</p>
-
+<h2 class="section-title">Superando a Dependência em Jogos de Azar</h2>
+<p>Atendimento sigiloso e especializado para quem enfrenta problemas relacionados a apostas, cassinos online, bets e jogos compulsivos.</p>
 </div>
 
 <div class="row g-4">
-
 <div class="col-md-4">
 <div class="feature-card">
 <h4>🔒 Sigilo Total</h4>
-<p>
-Atendimento reservado e seguro.
-</p>
+<p>Atendimento reservado e seguro.</p>
 </div>
 </div>
-
 <div class="col-md-4">
 <div class="feature-card">
 <h4>🧠 Reestruturação Emocional</h4>
-<p>
-Trabalho focado na origem do comportamento compulsivo.
-</p>
+<p>Trabalho focado na origem do comportamento compulsivo.</p>
 </div>
 </div>
-
 <div class="col-md-4">
 <div class="feature-card">
 <h4>👨‍👩‍👧‍👦 Reconstrução Familiar</h4>
-<p>
-Suporte para recuperar relacionamentos.
-</p>
+<p>Suporte para recuperar relacionamentos.</p>
 </div>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-<!-- TRATAMENTO -->
-
 <section id="tratamento" class="py-5 bg-light">
-
 <div class="container">
-
 <div class="text-center mb-5">
-
-<h2 class="section-title">
-Metodologia e Estrutura
-</h2>
-
+<h2 class="section-title">Metodologia e Estrutura</h2>
 </div>
 
 <div class="row g-5">
-
 <div class="col-lg-6">
-
-<h3 class="mb-4">
-Infraestrutura
-</h3>
-
+<h3 class="mb-4">Infraestrutura</h3>
 <ul class="treatment-list">
-
 <li><i class="fas fa-check-circle"></i>Monitoramento 24 Horas</li>
-
 <li><i class="fas fa-check-circle"></i>Enfermagem 24 Horas</li>
-
 <li><i class="fas fa-check-circle"></i>Psiquiatras</li>
-
 <li><i class="fas fa-check-circle"></i>Psicólogos</li>
-
 <li><i class="fas fa-check-circle"></i>Coach Terapêutico</li>
-
 <li><i class="fas fa-check-circle"></i>Monitores Especializados</li>
-
 <li><i class="fas fa-check-circle"></i>4 Refeições por Dia</li>
-
 <li><i class="fas fa-check-circle"></i>Piscina</li>
-
-<li><i class="fas fa-check-circle"></i>Sauna</li>
-
 <li><i class="fas fa-check-circle"></i>Quadras Esportivas</li>
-
 </ul>
-
 </div>
 
 <div class="col-lg-6">
-
-<h3 class="mb-4">
-Programa Terapêutico
-</h3>
-
+<h3 class="mb-4">Programa Terapêutico</h3>
 <ul class="treatment-list">
-
 <li><i class="fas fa-heart"></i>Terapia Cognitiva Comportamental</li>
-
 <li><i class="fas fa-heart"></i>Terapia Racional Emotiva</li>
-
 <li><i class="fas fa-heart"></i>Plano de Prevenção à Recaída</li>
-
 <li><i class="fas fa-heart"></i>Guia de Passos</li>
-
 <li><i class="fas fa-heart"></i>Introdução ao N.A. e A.A.</li>
-
 <li><i class="fas fa-heart"></i>Reuniões em Grupo</li>
-
 <li><i class="fas fa-heart"></i>Atendimentos Individuais</li>
-
 <li><i class="fas fa-heart"></i>Vídeo Terapia</li>
-
 <li><i class="fas fa-heart"></i>Espiritualidade</li>
-
 </ul>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
-
-<!-- GALERIA -->
 
 <section id="gallery" class="gallery py-5">
     <div class="container">
-
         <div class="text-center mb-5">
             <h2 class="section-title">Conheça Nossa Estrutura</h2>
             <p>Ambientes preparados para acolhimento, recuperação e bem-estar.</p>
         </div>
 
-        <div id="estruturaCarousel" class="carousel slide shadow-lg rounded overflow-hidden"
-             data-bs-ride="carousel">
-
+        <div id="estruturaCarousel" class="carousel slide shadow-lg rounded overflow-hidden" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="0" class="active"></button>
                 <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="1"></button>
@@ -636,327 +573,146 @@ Programa Terapêutico
             </div>
 
             <div class="carousel-inner">
-
-                <div class="carousel-item active">
-                    <img src="assets/img/foto2.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto3.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto4.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto5.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto6.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto7.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto8.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto9.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto10.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto11.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto12.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto13.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto14.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/img/foto15.jpg" class="d-block w-100 gallery-slide" alt="">
-                </div>
-
+                <div class="carousel-item active"><img src="assets/img/foto2.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto3.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto4.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto5.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto6.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto7.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto8.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto9.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto10.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto11.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto12.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto13.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto14.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+                <div class="carousel-item"><img src="assets/img/foto15.jpg" class="d-block w-100 gallery-slide" alt=""></div>
             </div>
 
-            <button class="carousel-control-prev" type="button"
-                    data-bs-target="#estruturaCarousel"
-                    data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#estruturaCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </button>
-
-            <button class="carousel-control-next" type="button"
-                    data-bs-target="#estruturaCarousel"
-                    data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#estruturaCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </button>
-
         </div>
-
     </div>
 </section>
-<!-- BENEFÍCIOS -->
 
 <section class="py-5 bg-success text-white">
-
 <div class="container">
-
 <div class="text-center mb-5">
-
-<h2 class="section-title text-white">
-Diferenciais da Rede Sol Nascente
-</h2>
-
+<h2 class="section-title text-white">Diferenciais da Rede Sol Nascente</h2>
 </div>
 
 <div class="row g-4">
-
 <div class="col-lg-4" style="color: #666;">
-
-<div class="benefit-card" style="color: #666;">
-
+<div class="benefit-card">
 <h4>Consultoria Especializada</h4>
-
-<p>
-Orientação precisa para famílias durante todo o processo.
-</p>
-
+<p>Orientação precisa e acolhedora para famílias durante todo o processo de triagem e internação.</p>
 </div>
-
 </div>
 
 <div class="col-lg-4">
-
 <div class="benefit-card" style="color: #666;">
-
 <h4>Abordagem Humanizada</h4>
-
-<p>
-Respeito à individualidade e dignidade do paciente.
-</p>
-
+<p>Total respeito à individualidade, integridade e dignidade do paciente ao longo de cada etapa terapêutica.</p>
 </div>
-
 </div>
 
 <div class="col-lg-4">
-
 <div class="benefit-card" style="color: #666;">
-
 <h4>Foco em Reintegração</h4>
-
-<p>
-Preparação para uma vida saudável após o tratamento.
-</p>
-
+<p>Preparação e desenvolvimento de ferramentas comportamentais para uma vida saudável e produtiva pós-tratamento.</p>
 </div>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-<!-- FAQ -->
-
 <section id="faq" class="py-5">
-
 <div class="container">
-
 <div class="text-center mb-5">
-
-<h2 class="section-title">
-Perguntas Frequentes
-</h2>
-
+<h2 class="section-title">Perguntas Frequentes</h2>
 </div>
 
 <div class="accordion" id="faqAccordion">
-
 <div class="accordion-item">
-
 <h2 class="accordion-header">
-<button class="accordion-button"
-data-bs-toggle="collapse"
-data-bs-target="#faq1">
+<button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
 Como funciona o processo de admissão?
 </button>
 </h2>
-
-<div id="faq1"
-class="accordion-collapse collapse show">
-
+<div id="faq1" class="accordion-collapse collapse show">
 <div class="accordion-body">
-Avaliação realizada por equipe especializada para definir o melhor plano terapêutico.
+Todo recomeço ou evolução na saúde exige um ponto de partida seguro. Nosso processo inicia-se com um acolhimento humanizado, por meio de uma triagem e avaliação detalhada realizada por nossa equipe de especialistas. Mais do que olhar para sintomas, analisamos minuciosamente o perfil, o histórico clínico e o estilo de vida de cada paciente. Esse diagnóstico integral é o que nos permite traçar um direcionamento preciso e um plano terapêutico sob medida — priorizando a segurança, a eficácia e o respeito à individualidade de quem confia em nosso cuidado.
 </div>
-
 </div>
-
 </div>
 
 <div class="accordion-item">
-
 <h2 class="accordion-header">
-<button class="accordion-button collapsed"
-data-bs-toggle="collapse"
-data-bs-target="#faq2">
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
 A família pode participar do tratamento?
 </button>
 </h2>
-
-<div id="faq2"
-class="accordion-collapse collapse">
-
+<div id="faq2" class="accordion-collapse collapse">
 <div class="accordion-body">
-Sim. Oferecemos orientação e acompanhamento para familiares.
+Sim, com absoluta certeza. Entendemos que a família é a base principal e um pilar indispensável para o sucesso da reabilitação. Oferecemos programas contínuos de orientação, reuniões de apoio emocional e suporte terapêutico focado nos familiares, preparando o ambiente doméstico para o retorno saudável do paciente.
+</div>
+</div>
+</div>
 </div>
 
 </div>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
-
-<!-- CTA -->
 
 <section class="cta">
-
 <div class="container text-center">
-
-<h2 class="mb-4">
-O primeiro passo para a recuperação pode começar hoje.
-</h2>
-
-<p class="lead mb-4">
-Converse agora com nossa equipe de forma sigilosa.
-</p>
-
-<a href="https://wa.me/5521990392332"
-class="btn btn-light btn-lg"> <i class="fab fa-whatsapp"></i>
-Falar no WhatsApp </a>
-
+<h2 class="mb-4">O primeiro passo para a recuperação pode começar hoje.</h2>
+<p class="lead mb-4">Converse agora com nossa equipe de forma 100% sigilosa.</p>
+<a href="https://wa.me/5521995358045" class="btn btn-light btn-lg"> <i class="fab fa-whatsapp"></i> Falar no WhatsApp </a>
 </div>
-
 </section>
 
-<!-- CONTATO -->
-
 <section id="contact" class="py-5">
-
 <div class="container">
-
 <div class="row g-5">
 
 <div class="col-lg-5">
-
 <div class="contact-box">
-
 <h2>Contato</h2>
-
-<p>
-<i class="fas fa-map-marker-alt"></i>
-Itaboraí - RJ
-</p>
-
-<p>
-<i class="fab fa-whatsapp"></i>
-(21) 99039-2332
-</p>
-
-<p>
-<i class="fas fa-envelope"></i>
-thiagopaiva1980@outlook.com
-</p>
-
+<p><i class="fas fa-map-marker-alt"></i> Itaboraí - RJ</p>
+<p><i class="fab fa-whatsapp"></i> (21) 99535-8045</p>
+<p><i class="fas fa-envelope"></i> redesolnascente1@gmail.com</p>
 </div>
-
 </div>
 
 <div class="col-lg-7">
-
 <div class="contact-box">
-
 <form>
-
-<div class="mb-3">
-<input type="text"
-class="form-control"
-placeholder="Seu nome">
-</div>
-
-<div class="mb-3">
-<input type="tel"
-class="form-control"
-placeholder="Seu telefone">
-</div>
-
-<div class="mb-3">
-<textarea class="form-control"
-rows="5"
-placeholder="Como podemos ajudar?"></textarea>
-</div>
-
-<button class="btn btn-success w-100">
-Solicitar Atendimento
-</button>
-
+<div class="mb-3"><input type="text" class="form-control" placeholder="Seu nome"></div>
+<div class="mb-3"><input type="tel" class="form-control" placeholder="Seu telefone"></div>
+<div class="mb-3"><textarea class="form-control" rows="5" placeholder="Como podemos ajudar?"></textarea></div>
+<button class="btn btn-success w-100">Solicitar Atendimento</button>
 </form>
-
+</div>
 </div>
 
 </div>
-
 </div>
-
-</div>
-
 </section>
 
 <footer>
-
 <div class="container text-center">
-
 <img src="assets/img/logo.png" alt="Logo" width="30%">
-
-<p>
-Rede Sol Nascente © 2026
-</p>
-
-<p>
-Recuperação de Dependência Química e Jogos
-</p>
-
+<p>Rede Sol Nascente © 2026</p>
+<p>Recuperação de Dependência Química e Jogos</p>
 </div>
-
 </footer>
 
-<a href="https://wa.me/5521990392332"
-class="whatsapp-float">
-
+<a href="https://wa.me/5521995358045" class="whatsapp-float">
 <i class="fab fa-whatsapp"></i>
-
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
