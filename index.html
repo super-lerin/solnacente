@@ -12,7 +12,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <style>
 :root{
 --primary:#198754;
@@ -347,6 +347,79 @@ padding:30px 0;
 .carousel-inner {
     max-height: 450px;
 }
+/* --- Estilização da Nova Galeria Vertical --- */
+.gallery-card-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+    height: 480px; /* Altura ideal fixada para fotos verticais */
+    margin: 15px 0;
+}
+
+.gallery-card-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(25, 135, 84, 0.15);
+}
+
+.gallery-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o card perfeitamente sem distorcer */
+    object-position: center;
+}
+
+/* Legenda elegante que aparece ao passar o mouse */
+.gallery-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13, 27, 22, 0.85) 0%, rgba(0,0,0,0) 50%);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-card-wrapper:hover .gallery-card-overlay {
+    opacity: 1;
+}
+
+.gallery-card-overlay span {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+.gallery-card-wrapper:hover .gallery-card-overlay span {
+    transform: translateY(0);
+}
+
+/* Customização dos botões de navegação */
+.custom-swiper-btn {
+    color: var(--primary) !important;
+    background: #fff;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.custom-swiper-btn::after {
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+/* Estilos de paginação ativos em verde */
+.swiper-pagination-bullet-active {
+    background: var(--primary) !important;
+    width: 20px !important;
+    border-radius: 4px !important;
+    transition: width .3s ease;
+}
 </style>
 </head>
 
@@ -560,6 +633,7 @@ padding:30px 0;
 </div>
 </section>
 
+
 <section id="gallery" class="gallery py-5">
     <div class="container">
         <div class="text-center mb-5">
@@ -611,48 +685,86 @@ padding:30px 0;
         </div>
     </div>
 </section>
-<section id="gallery" class="gallery py-5">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="section-title">Outra Unicade</h2>
-            <p>veja as fotos da nossa segunda unidade</p>
-        </div>
 
-        <div id="estruturaCarousel" class="carousel slide shadow-lg rounded overflow-hidden" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="2"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="3"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="4"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="5"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="6"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="7"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="8"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="9"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="10"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="11"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="12"></button>
-                <button type="button" data-bs-target="#estruturaCarousel" data-bs-slide-to="13"></button>
-            </div>
+<section id="swiper-gallery" class="py-5" style="background-color: #f8faf9;">
+    <div class="container text-center mb-5">
+        <span class="text-success fw-bold text-uppercase tracking-wider small d-block mb-2">Nossa Estrutura</span>
+        <h2 class="section-title" style="font-size: 2.3rem; font-weight: 700; color: #0d1b16;">Conheça Nossa Segunda Unidade</h2>
+        <p class="text-muted mx-auto" style="max-width: 600px;">Ambientes amplos, integrados à natureza e projetados para oferecer o máximo de conforto e paz durante o acolhimento.</p>
+    </div>
 
-           <div class="carousel-inner">
-                <div class="carousel-item active"><img src="assets/slide2/attachments/126173.jpg" class="d-block w-100 gallery-slide" alt=""></div>
-                <div class="carousel-item"><img src="assets/slide2/attachments/126174.jpg" class="d-block w-100 gallery-slide" alt=""></div>
-                <div class="carousel-item"><img src="assets/slide2/attachments/126177.jpg" class="d-block w-100 gallery-slide" alt=""></div>
-                <div class="carousel-item"><img src="assets/slide2/attachments/126179.jpg" class="d-block w-100 gallery-slide" alt=""></div>
-                <div class="carousel-item"><img src="assets/slide2/attachments/126181.jpg" class="d-block w-100 gallery-slide" alt=""></div>
-                <div class="carousel-item"><img src="assets/slide2/attachments/126183.jpg" class="d-block w-100 gallery-slide" alt=""></div>
-                <div class="carousel-item"><img src="assets/slide2/attachments/126185.jpg" class="d-block w-100 gallery-slide" alt=""></div>
-                <div class="carousel-item"><img src="assets/slide2/attachments/126187.jpg" class="d-block w-100 gallery-slide" alt=""></div>
-                <div class="carousel-item"><img src="assets/slide2/attachments/126189.jpg" class="d-block w-100 gallery-slide" alt=""></div>
+    <div class="container px-4">
+        <div class="swiper vertical-gallery-slider">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <div class="gallery-card-wrapper">
+                        <img src="assets/slide2/attachments/126173.jpg" alt="Estrutura Unidade 2" class="gallery-card-img">
+                        <div class="gallery-card-overlay"><span>Área Externa</span></div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="gallery-card-wrapper">
+                        <img src="assets/slide2/attachments/126174.jpg" alt="Estrutura Unidade 2" class="gallery-card-img">
+                        <div class="gallery-card-overlay"><span>Convivência</span></div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="gallery-card-wrapper">
+                        <img src="assets/slide2/attachments/126177.jpg" alt="Estrutura Unidade 2" class="gallery-card-img">
+                        <div class="gallery-card-overlay"><span>Refeitório</span></div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="gallery-card-wrapper">
+                        <img src="assets/slide2/attachments/126179.jpg" alt="Estrutura Unidade 2" class="gallery-card-img">
+                        <div class="gallery-card-overlay"><span>Área Verde</span></div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="gallery-card-wrapper">
+                        <img src="assets/slide2/attachments/126181.jpg" alt="Estrutura Unidade 2" class="gallery-card-img">
+                        <div class="gallery-card-overlay"><span>Acomodações</span></div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="gallery-card-wrapper">
+                        <img src="assets/slide2/attachments/126183.jpg" alt="Estrutura Unidade 2" class="gallery-card-img">
+                        <div class="gallery-card-overlay"><span>Lazer</span></div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="gallery-card-wrapper">
+                        <img src="assets/slide2/attachments/126185.jpg" alt="Estrutura Unidade 2" class="gallery-card-img">
+                        <div class="gallery-card-overlay"><span>Refeitório Interno</span></div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="gallery-card-wrapper">
+                        <img src="assets/slide2/attachments/126187.jpg" alt="Estrutura Unidade 2" class="gallery-card-img">
+                        <div class="gallery-card-overlay"><span>Espaço Gourmet</span></div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="gallery-card-wrapper">
+                        <img src="assets/slide2/attachments/126189.jpg" alt="Estrutura Unidade 2" class="gallery-card-img">
+                        <div class="gallery-card-overlay"><span>Varanda de Descanso</span></div>
+                    </div>
+                </div>
+
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#estruturaCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#estruturaCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
+            
+            <div class="swiper-pagination mt-4" style="position: relative; bottom: 0;"></div>
+            <div class="swiper-button-next custom-swiper-btn"></div>
+            <div class="swiper-button-prev custom-swiper-btn"></div>
         </div>
     </div>
 </section>
@@ -773,6 +885,75 @@ Sim, com absoluta certeza. Entendemos que a família é a base principal e um pi
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.gallery-slider', {
+      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      breakPoints: {
+        320: { slidesPerView: 1, spaceBetween: 20 },
+        768: { slidesPerView: 2, spaceBetween: 20 },
+        1200: { slidesPerView: 3, spaceBetween: 20 }
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    });
+  });
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.vertical-gallery-slider', {
+        speed: 800,
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false
+        },
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        // Configuração Diagramada e Responsiva
+        breakpoints: {
+            576: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            992: {
+                slidesPerView: 3,
+                spaceBetween: 25,
+            },
+            1200: {
+                slidesPerView: 4, // Exibe 4 cards lindos por vez em telas grandes
+                spaceBetween: 30,
+            }
+        }
+    });
+});
+</script>
 </body>
 </html>
